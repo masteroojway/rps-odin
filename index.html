@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World");
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        const choices = ["rock", "paper", "scissors"];
+        let humanscore = 0;
+        let computerscore = 0;
+        function playRound(choice, computerchoice) {
+                if (choice === computerchoice) {
+                    return "It's a tie!";
+                } else if (
+                    (choice === "rock" && computerchoice === "scissors") ||
+                    (choice === "paper" && computerchoice === "rock") ||
+                    (choice === "scissors" && computerchoice === "paper")
+                ) {
+                    humanscore++;
+                    return "You win this round!";
+                } else {
+                    computerscore++;
+                    return "Computer wins this round!";
+                }}
+        function playGame(){
+                console.log("here");
+                for(let i = 0; i < 5;i++)
+                {
+
+                    let computerchoice = choices[getRandomInt(3)];
+                    let choice = prompt("What do you choose?");
+                    let choicenorm = ""
+                    for(let i = 0;i<choice.length;i++)
+                    {
+                        choicenorm += choice[i].toLowerCase();
+                    }
+                    playRound(choice, computerchoice);
+                    let current = "human: "+choice+" computer: " +computerchoice;
+                    let comment1 = "humanscore: " + humanscore;
+                    let comment2 = "computerscore: " + computerscore;
+                    console.log(current);
+                    console.log(comment1);
+                    console.log(comment2);
+                }
+            }
+        playGame();
+
+    </script>
+</body>
+</html>
